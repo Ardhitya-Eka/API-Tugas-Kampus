@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model data_mahasiswa {
+  id               Int    @id @default(autoincrement())
+  nama             String @db.VarChar(100)
+  email            String @db.VarChar(100)
+  telepon          String @db.VarChar(15)
+  identitas        String @db.VarChar(100)
+  izazah           String @db.VarChar(255)
+  bukti_pembayaran String @db.VarChar(255)
+  tes_masuk        String @db.VarChar(255)
+  foto             String @db.VarChar(255)
+
+  @@map("data mahasiswa")
+}
